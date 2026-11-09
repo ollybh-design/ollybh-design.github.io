@@ -1,0 +1,300 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>On Display</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#fbfaf8; --ink:#141414; --muted:#6b6b6b; --faint:#9a9a9a; --line:#e3e1dc; --stage:#eae5df; --white:#ffffff; --blue:#0058a3; --yellow:#ffda1a;
+  --display:"Inter Tight","Helvetica Neue",Arial,sans-serif; --body:"Inter","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --paper:#121212; --ink:#ededeb; --muted:#a3a3a0; --faint:#77777a; --line:#2c2c2c; color-scheme:dark } }
+:root[data-theme="dark"]{ --paper:#121212; --ink:#ededeb; --muted:#a3a3a0; --faint:#77777a; --line:#2c2c2c; color-scheme:dark }
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;overflow-x:clip;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+a{color:inherit}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:1px solid var(--ink);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);font-weight:500;letter-spacing:-.02em}
+.eyebrow,.stage .count,.k{font-family:var(--body);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+/* header */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar-in{padding:14px 48px;display:flex;align-items:center;gap:12px 32px;flex-wrap:wrap}
+.who{font-family:var(--display);font-weight:500;font-size:15px;margin-right:auto}
+.who span{color:var(--faint);font-weight:400}
+.nav{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none;max-width:100%}
+.nav::-webkit-scrollbar{display:none}
+.nav a{text-decoration:none;font-size:13px;color:var(--muted);white-space:nowrap;padding:4px 0;border-bottom:1px solid transparent}
+.nav a:hover,.nav a.on{color:var(--ink);border-bottom-color:var(--ink)}
+.wrap{max-width:1200px;margin:0 auto;padding:40px 24px 72px}
+section{scroll-margin-top:70px}
+/* hero */
+.hero{margin:0 -24px 40px}
+.hero img{width:100%;display:block;background:var(--stage)}
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 48px;align-items:end;padding-bottom:40px;border-bottom:1px solid var(--line);margin-bottom:56px}
+.head h1{font-size:clamp(44px,7vw,92px);line-height:.95;letter-spacing:-.045em;margin:10px 0 14px}
+.head .sub{font-family:var(--display);font-size:clamp(19px,2.2vw,25px);margin:0;letter-spacing:-.01em;max-width:30ch}
+.head .why{margin:0;color:var(--muted);max-width:52ch;font-size:15.5px}
+.head .note{display:block;margin-top:14px;font-size:12px;color:var(--faint)}
+.logos{display:flex;align-items:center;gap:14px}
+.logos img{height:34px;display:block}
+.logos span{font-size:12px;color:var(--faint)}
+/* blocks */
+.blk{border-top:1px solid var(--line);padding:44px 0 0;margin:0 0 64px}
+.blk > h2{font-size:clamp(28px,3.6vw,44px);line-height:1.05;letter-spacing:-.03em;margin:8px 0 14px;max-width:22ch}
+.blk > .lead{margin:0 0 28px;font-size:16.5px;color:var(--muted);max-width:66ch}
+.points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin:8px 0 0}
+.points.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.points div{padding-top:12px;border-top:1px solid var(--ink);display:flex;flex-direction:column;gap:6px;min-width:0}
+.points b{font-family:var(--display);font-weight:500;font-size:17px}
+.points span{color:var(--muted);font-size:14px}
+.big{margin:0 0 12px}.big img{width:100%;display:block;background:var(--stage)}
+figcaption{font-size:12px;color:var(--muted);margin-top:8px}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0 0 12px}
+.duo figure,.quad figure{margin:0}.duo img,.quad img{width:100%;display:block;background:var(--stage)}
+.quad{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.quad img{aspect-ratio:1;object-fit:cover}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.trio figure{margin:0}.trio img{width:100%;display:block;aspect-ratio:1;object-fit:cover;background:var(--stage)}
+/* player */
+.player{display:block}
+.stage{position:relative;background:var(--stage);overflow:hidden;width:100vw;margin-left:calc(50% - 50vw);height:calc(100vh - 76px);min-height:560px;max-height:1000px;display:flex;flex-direction:column;--ink:#141414;--muted:#6b6b6b;--faint:#8f8a82;--line:#d6d0c7;--paper:#fbfaf8;color:#141414}
+.stage canvas{width:100%;flex:1;min-height:0;display:block;touch-action:pan-y}
+.stage .count{position:absolute;left:24px;top:18px;color:#6b665e}
+.stage .load{position:absolute;right:24px;bottom:18px;font-size:12px;color:#6b665e}
+.brandbar{position:absolute;right:24px;top:14px;display:flex;align-items:center;gap:8px;background:rgba(251,250,248,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:6px;box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.brandbar .seg{border:0}
+.brandbar .seg button{color:#6b6b6b;min-height:38px;padding:8px 14px;font-size:13px}
+.brandbar .seg button+button{border-left:1px solid #e3e1dc}
+.brandbar .seg button[aria-pressed="true"]{background:#141414;color:#fbfaf8}
+.yours{display:inline-flex;align-items:center;min-height:38px;padding:8px 16px;background:#0058a3;color:#fff!important;text-decoration:none;font-size:13px;font-weight:500;white-space:nowrap}
+.yours:hover{background:#00457f}
+.talk{display:flex;flex-direction:column;gap:10px;min-width:0;padding:0 max(24px,calc(50vw - 600px)) 18px}
+.seg{display:flex;border:1px solid var(--line)}
+.seg button{border:0;background:none;padding:7px 11px;font-size:12px;color:var(--muted);cursor:pointer;min-height:36px}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.steps{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(120px,1fr);border-top:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.steps::-webkit-scrollbar{display:none}
+.step{display:flex;flex-direction:column;gap:4px;text-align:left;border:0;border-top:2px solid transparent;margin-top:-1px;background:none;padding:12px 14px 4px 0;cursor:pointer}
+.step .n{font-size:11px;font-variant-numeric:tabular-nums;color:var(--faint)}
+.step h3{margin:0;font-size:15px;font-weight:500;color:var(--muted);line-height:1.25}
+.step:hover h3,.step[aria-current="true"] h3,.step[aria-current="true"] .n{color:var(--ink)}
+.step[aria-current="true"]{border-top-color:var(--ink)}
+.desc{margin:0;font-size:15.5px;color:var(--ink);max-width:80ch;min-height:2.9em}
+.ctrl{display:flex;gap:8px 10px;flex-wrap:wrap;align-items:center}
+.ctrl button{border:1px solid var(--line);background:none;padding:10px 18px;font-size:13px;cursor:pointer;min-height:44px}
+.ctrl button:hover{border-color:var(--ink)}
+.ctrl button.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.rot{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted);margin-left:14px}
+.rot input{width:180px;accent-color:var(--ink);min-height:32px}
+.rot.chk input{width:18px;height:18px;min-height:auto}
+.navbtn{position:absolute;top:calc(50% - 90px);width:60px;height:60px;border-radius:50%;border:1px solid rgba(20,20,20,.12);background:rgba(251,250,248,.94);color:#141414;font-size:24px;line-height:1;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.08);transition:transform .15s,background .15s;z-index:2}
+.navbtn:hover{transform:scale(1.06);background:#fff}
+.navbtn.prev{left:24px}.navbtn.next{right:24px;background:#141414;color:#fbfaf8;border-color:#141414}
+.navbtn.next:hover{background:#000}
+.navbtn:disabled{opacity:.3;cursor:default;transform:none}
+.ctrl button.primary{font-size:15px;padding:12px 26px;min-height:50px}
+.stepof{font-size:13px;color:#6b6b6b;font-variant-numeric:tabular-nums;margin:0 6px}
+@keyframes nudge{0%{box-shadow:0 0 0 0 rgba(20,20,20,.35)}70%{box-shadow:0 0 0 14px rgba(20,20,20,0)}100%{box-shadow:0 0 0 0 rgba(20,20,20,0)}}
+.nudge .navbtn.next,.nudge .ctrl button.primary{animation:nudge 1.6s ease-out 3}
+@media (max-width:860px){.navbtn{width:46px;height:46px;font-size:20px;top:calc(29vh - 23px)}.navbtn.prev{left:10px}.navbtn.next{right:10px}}
+.walknote{color:var(--faint);font-size:12px;margin:14px 0 0;max-width:80ch}
+/* tables */
+.tbl{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.tbl th,.tbl td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.tbl td:first-child{font-weight:500}
+.scroll{overflow-x:auto}
+.lists{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.lists h3{font-size:17px;margin:0 0 8px;padding-top:12px;border-top:1px solid var(--ink)}
+.lists ul{margin:0;padding-left:16px;color:var(--muted);font-size:14px}
+.lists li{margin:5px 0}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.stat{border-top:1px solid var(--ink);padding-top:12px}
+.stat .num{font-family:var(--display);font-size:42px;letter-spacing:-.03em;line-height:1}
+.stat p{margin:8px 0 6px;color:var(--muted);font-size:14px}
+.stat a{font-size:12px;color:var(--faint)}
+.dl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.dl div{border-top:1px solid var(--ink);padding-top:10px;font-size:14px}
+.dl a{display:block;color:var(--muted);text-decoration:none;padding:3px 0}
+.dl a:hover{color:var(--ink)}
+.sizebar{display:flex;gap:10px;align-items:center;margin:0 0 14px;flex-wrap:wrap}
+.foot{margin-top:72px;color:var(--faint);font-size:12px;border-top:1px solid var(--line);padding-top:18px}
+@media (max-width:860px){
+  .bar-in{padding:12px 16px}.wrap{padding:28px 16px 56px}.hero{margin:0 -16px 28px}
+  .head,.player{grid-template-columns:1fr}
+  .points,.points.four,.stats{grid-template-columns:1fr}
+  .duo{grid-template-columns:1fr}.quad{grid-template-columns:repeat(2,minmax(0,1fr))}.trio{grid-template-columns:1fr}
+  .lists{grid-template-columns:1fr}.dl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .who span{display:none}
+}
+</style>
+<style>
+.brandgrid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px;align-items:center;margin-top:12px}
+.brandgrid figure{margin:0}.brandgrid img{width:100%;display:block}
+.brandgrid .points{grid-template-columns:1fr;gap:22px}
+.process{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+.process figure{margin:0}.process img{width:100%;display:block;background:#fff;border:1px solid var(--line)}
+.eyebrow.brandline{display:block;margin-bottom:4px}
+.seq{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;width:min(100vw - 32px,1600px);margin-left:50%;transform:translateX(-50%)}
+.seq figure{margin:0}.seq img{width:100%;aspect-ratio:1;object-fit:contain;background:#fff;display:block}
+.seq figcaption span{display:block;font-size:11px;letter-spacing:.14em;color:var(--faint);margin-bottom:2px}
+.dieline{background:#fff;padding:12px;border:1px solid var(--line)}
+@media (max-width:860px){.seq{grid-template-columns:repeat(2,minmax(0,1fr))}.brandgrid,.process{grid-template-columns:1fr}.stage{height:auto;min-height:0;max-height:none}.stage canvas{flex:none;height:58vh}.brandbar{left:12px;right:12px;top:auto;bottom:auto;position:relative;margin:10px 12px 0;flex-wrap:wrap;justify-content:center}.stage .count{top:12px}.rot{margin-left:0}.rot input{width:140px}}
+</style>
+<header class="bar"><div class="bar-in"><div class="who">Oliver Branson Hammond <span>· On Display shoebox</span></div>
+<nav class="nav" id="nav"><a href="#idea">Idea</a><a href="#walk">Walkthrough</a><a href="#made">Flat pack</a><a href="#make">Manufacturing</a><a href="#sizes">Sizes</a><a href="#brand">Branding</a><a href="#why">Why it works</a></nav></div></header>
+<main class="wrap">
+<figure class="hero"><img src="img/hero.jpg" alt="On Display shoeboxes in adidas, Nike SB, Puma, New Balance and plain kraft, each standing on its lid with a pair of trainers on its tilted platform"></figure>
+
+<section id="idea" class="head">
+  <div>
+    <span class="eyebrow brandline">Any brand · Showcased by adidas</span>
+    <h1>On Display</h1>
+    <p class="sub">A shoebox that becomes the stand for the shoes inside it.</p>
+  </div>
+  <div>
+    <p class="why">Plenty of people keep the box, and a lot of pairs are bought to keep rather than to wear. This box earns its place on the shelf. Lift the platform inside, fold down two supports and the box stands on its own lid as a tilted plinth, showing the pair like a shop display.</p>
+  </div>
+</section>
+
+<section class="blk" style="border-top:0;padding-top:0">
+  <div class="points four">
+    <div><b>Still a shoebox</b><span>Base and lid like any shoebox. It packs, stacks and ships the same way, with the platform lying flat above the pair.</span></div>
+    <div><b>Lift, fold, lock</b><span>The platform is hinged at the front and lifts by a pull tab at the back. Two supports fold down from under it and lock into slots on the side ledges at 12°.</span></div>
+    <div><b>Stands on its lid</b><span>The lid becomes a plinth, so the whole box turns into a small display piece for a shelf or a desk.</span></div>
+    <div><b>Three flat parts</b><span>Base, platform and lid in E flute board. Glued corners like any shoebox, no plastic, and the supports are cut from the platform blank.</span></div>
+  </div>
+</section>
+
+<section id="walk" class="blk">
+  <span class="eyebrow">Walkthrough</span>
+  <h2>Unbox. Lift. Lock. Display.</h2>
+  <p class="lead">Step through the box as a customer would use it. Switch the brand on the model, untick Show trainers to see the supports, and drag to look around it.</p>
+  <div id="use"></div>
+</section>
+
+<section class="blk" style="border-top:0;padding-top:0">
+  <div class="seq">
+    <figure><img src="img/packed.jpg" alt="Cut-away adidas box with a Samba trainer packed under the flat kraft platform" loading="lazy"><figcaption><span>01</span>Packed: the platform rests on the ledges, just above the pair.</figcaption></figure>
+    <figure><img src="img/supports.jpg" alt="Open adidas box with the kraft platform lifted and the supports folded out underneath" loading="lazy"><figcaption><span>02</span>Lift the rear edge by its tab; the supports fold out underneath.</figcaption></figure>
+    <figure><img src="img/lift.jpg" alt="The platform lowered onto its supports at a tilt inside the box" loading="lazy"><figcaption><span>03</span>Lower it: the supports lock the platform at 12°.</figcaption></figure>
+    <figure><img src="img/adidas.jpg" alt="adidas On Display box standing on its lid with a pair of white Sambas on the tilted kraft platform" loading="lazy"><figcaption><span>04</span>Stand it on its lid and put the pair on show.</figcaption></figure>
+  </div>
+</section>
+
+<section id="made" class="blk">
+  <span class="eyebrow">Flat pack</span>
+  <h2>Three flat parts.</h2>
+  <p class="lead">Each part is a single die cut blank of E flute board. Base and lid are built like a standard two piece shoebox, with glued corner flaps. The long walls of the base fold over at the rim to make the two ledges, and the platform's hinge flap is glued inside the base front wall, so base and platform travel together, flat.</p>
+  <figure class="big"><img src="img/dieline.svg" class="dieline" alt="Dielines for the base, the display platform and the lid"><figcaption>Standard size (UK 8) shown. Cut lines solid, creases dashed blue, reverse creases dashed orange, glue areas hatched. Dimensions in mm.</figcaption></figure>
+  <div class="points">
+    <div><b>1  Base</b><span>Floor, two end walls with glued corner flaps, and two long walls. Each long wall folds over at the rim and down inside to make a 16 mm ledge; the inner wall locks into the floor with tabs. From inside it reads as one wall with a ledge, as in the renders.</span></div>
+    <div><b>2  Display platform</b><span>A top layer with folded edges, a pull tab on its rear edge and an under layer folded back from the rear. Two supports hang from the under layer; each has a foot with two tabs that drop into slots in the ledge.</span></div>
+    <div><b>3  Lid</b><span>A standard telescoping shoebox lid with glued corners. On display the box stands on it, top side up, as a plinth.</span></div>
+  </div>
+  <h3 style="font-size:24px;margin:52px 0 6px">How it is folded</h3>
+  <p style="margin:0 0 24px;color:var(--muted);max-width:64ch">From flat parts to a packed, branded box. Base and lid go up by hand or on the same erecting equipment used for other two piece shoeboxes.</p>
+  <div id="assembly"></div>
+</section>
+
+<section id="make" class="blk">
+  <span class="eyebrow">Manufacturing</span>
+  <h2>Made on the same lines as shoeboxes today.</h2>
+  <p class="lead">No new process. Every part is printed, die cut and creased like a standard corrugated shoebox, with one extra blank for the platform.</p>
+  <div class="lists">
+    <div><h3>Specification</h3><ul>
+      <li>Board: E flute single wall, about 1.6 mm, printed one side.</li>
+      <li>Print: flexo or litho laminate on the outside faces, in any brand's artwork. The platform stays kraft with a printed toe line.</li>
+      <li>Tooling: three cutting dies per size (base, platform, lid).</li>
+      <li>Glue: corner flaps on the base and lid, as on any two piece shoebox, plus the platform's hinge flap inside the base front wall.</li>
+      <li>No plastic, no magnets, no separate stand. Everything stays attached, so nothing gets lost.</li>
+    </ul></div>
+    <div><h3>Packing the pair</h3><ul>
+      <li>Base: end walls up, corner flaps glued, long walls folded up and over to form the ledges. The platform swings down onto the ledges.</li>
+      <li>Lift the platform, pack the pair with its tissue underneath, lower it, put the lid on.</li>
+      <li>Packed, it is the same shape as a normal two piece shoebox and stacks the same way.</li>
+    </ul></div>
+  </div>
+  <h3 style="font-size:24px;margin:48px 0 6px">Board</h3>
+  <p style="margin:0 0 20px;color:var(--muted);max-width:66ch">Board areas measured from the dielines for the standard size (UK 8). Prices depend on the supplier, the print and the volume, so the comparison is against a standard two piece shoebox for the same pair.</p>
+  <div class="scroll"><table class="tbl">
+    <tr><th>Part</th><th>Blank (mm)</th><th>Board</th></tr>
+    <tr><td>Base</td><td>899 × 616</td><td>0.39 m²</td></tr>
+    <tr><td>Display platform</td><td>382 × 685</td><td>0.20 m²</td></tr>
+    <tr><td>Lid</td><td>388 × 438</td><td>0.17 m²</td></tr>
+    <tr><td>On Display, total</td><td></td><td>0.76 m²</td></tr>
+    <tr><td>Standard two piece shoebox</td><td></td><td>about 0.35 m²</td></tr>
+  </table></div>
+  <div class="lists" style="margin-top:28px"><div><h3>Why the extra board is worth it</h3><ul>
+    <li>It replaces a second product: no separate acrylic case or display stand to make, ship and buy.</li>
+    <li>It is a box people keep, so the board stays in use on a shelf instead of going straight into the recycling.</li>
+    <li>It is still all paper, with no plastic, so it recycles like any shoebox at the end.</li>
+  </ul></div></div>
+</section>
+
+<section id="sizes" class="blk">
+  <span class="eyebrow">Every size</span>
+  <h2>One system, every size.</h2>
+  <p class="lead">The same three parts scale around the trainer, from UK 6 to UK 12. The display angle stays at 12° on every size; the supports get taller as the box gets longer.</p>
+  <figure class="big"><img src="img/sizes.jpg" alt="Five On Display boxes of increasing size, each with a pair of trainers on its platform" loading="lazy"></figure>
+  <div class="scroll"><table class="tbl"><tr><th></th><th>UK 6</th><th>UK 7</th><th>UK 8</th><th>UK 9</th><th>UK 10</th><th>UK 11</th><th>UK 12</th></tr><tr><td>Foot length (cm)</td><td>25.0</td><td>25.8</td><td>26.7</td><td>27.5</td><td>28.5</td><td>29.5</td><td>30.5</td></tr><tr><td>Typical standard box</td><td colspan="7">33–36 cm long, 18–22 cm wide, 10–13 cm tall across adult men's sizes</td></tr><tr><td>On Display base, outside</td><td>273 × 319 × 142</td><td>279 × 327 × 143</td><td>283 × 336 × 144</td><td>287 × 344 × 145</td><td>293 × 354 × 146</td><td>299 × 364 × 147</td><td>303 × 374 × 148</td></tr><tr><td>On Display lid, outside</td><td>278 × 327 × 52</td><td>284 × 335 × 52</td><td>288 × 344 × 52</td><td>292 × 352 × 52</td><td>298 × 362 × 52</td><td>304 × 372 × 52</td><td>308 × 382 × 52</td></tr><tr><td>Rear rise at 12°</td><td>65</td><td>67</td><td>68</td><td>70</td><td>72</td><td>74</td><td>76</td></tr></table></div>
+  <p class="walknote">On Display dimensions in mm, width × length × height. Foot lengths from Loake's UK size chart (UK 12 extrapolated); each box allows about 28 mm over the foot for the trainer and 38 mm of clearance inside. On Display matches a standard box's length; it is wider (two ledges and double long walls) and a little taller (room for the platform above the pair).</p>
+</section>
+
+<section id="brand" class="blk">
+  <span class="eyebrow">Branding</span>
+  <h2>Any brand. Showcased by adidas.</h2>
+  <p class="lead">The structure carries no logo of its own. The outside takes any artwork, from plain kraft to a full collab print, while the kraft platform keeps the pair the hero.</p>
+  <figure class="big"><img src="img/lineup.jpg" alt="On Display boxes printed for Puma, New Balance, plain kraft, Nike SB and adidas, each displaying a pair" loading="lazy"></figure>
+  <div class="brandgrid">
+    <figure><img src="img/nike.jpg" alt="Nike SB On Display box with sky, hills and cow print artwork, displaying a pair of Nike SB Dunks" loading="lazy"><figcaption>A collab drop, printed edge to edge.</figcaption></figure>
+    <div class="points">
+      <div><b>Lid top</b><span>The face seen on the shelf and in the stack: logo and the line "Keep the box. Show the shoes."</span></div>
+      <div><b>Base walls</b><span>All four stay visible on display, under the pair, like the sides of a shop plinth.</span></div>
+      <div><b>Platform</b><span>Kraft, with a printed toe line where the pair goes, so the shoes stay the focus.</span></div>
+      <div style="border-top:0;padding-top:4px"><a class="yours" href="enquiry.html" style="align-self:flex-start">Your brand on the box →</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="blk">
+  <span class="eyebrow">Why it works</span>
+  <h2>Some pairs are bought to be looked at.</h2>
+  <p class="lead">For a lot of buyers the box is part of the product: it is kept, stacked and shown. On Display makes that the point of the box, and keeps the brand in the room long after the unboxing.</p>
+  <div class="stats">
+    <div class="stat"><div class="num">49%</div><p>of US sneakerheads mainly buy sneakers to collect; another 39% buy some to keep and some to resell.</p><a href="https://today.yougov.com/news/2018/02/28/sneakerheads-willing-to-miss-work-school-buy-pair/" target="_blank" rel="noopener">YouGov, February 2018</a></div>
+    <div class="stat"><div class="num">1 in 3</div><p>sneakerheads say they never wear their prized pairs. Those pairs live on a shelf.</p><a href="https://today.yougov.com/news/2018/02/28/sneakerheads-willing-to-miss-work-school-buy-pair/" target="_blank" rel="noopener">YouGov, February 2018</a></div>
+    <div class="stat"><div class="num">7%</div><p>of American adults call themselves sneakerheads, most of them aged 18 to 34.</p><a href="https://today.yougov.com/news/2018/02/28/sneakerheads-willing-to-miss-work-school-buy-pair/" target="_blank" rel="noopener">YouGov, February 2018</a></div>
+    <div class="stat"><div class="num">1.5×</div><p>more likely: shoppers share pictures of gift like boxes on social media more than plain brown ones; 39% of online shoppers have shared a product picture or video.</p><a href="https://www.prweb.com/releases/2015/06/prweb12797936.htm" target="_blank" rel="noopener">Dotcom Distribution packaging report, 2015</a></div>
+    <div class="stat"><div class="num">85%</div><p>of adidas packaging was made from recycled content in 2025, and 97% of it is paper based. On Display is all board, with no plastic parts.</p><a href="https://report.adidas-group.com/2025/en/group-management-report-sustainability-statement/esrs-e5-resource-use-and-circular-economy/metrics-and-targets.html" target="_blank" rel="noopener">adidas Annual Report 2025</a></div>
+    <div class="stat"><div class="num">$10.6bn</div><p>estimated global sneaker resale market in 2025, where condition and the original box matter to value.</p><a href="https://www.datamintelligence.com/press-releases/sneaker-resale" target="_blank" rel="noopener">DataM Intelligence, May 2026</a></div>
+  </div>
+</section>
+
+<section class="blk">
+  <span class="eyebrow">Process</span>
+  <h2 style="font-size:24px">From sketch to render.</h2>
+  <div class="process">
+    <figure><img src="img/sketch1.jpg" alt="Sketch sheet: the display, lifting the platform, the supports and the flat box" loading="lazy"></figure>
+    <figure><img src="img/sketch2.jpg" alt="Sketches of the platform lifting with the supports folding out" loading="lazy"></figure>
+  </div>
+</section>
+
+<footer class="foot">On Display · Packaging concept by Oliver Branson Hammond, BSc Product Design, UWE Bristol · Oliverbh.design@gmail.com</footer>
+</main>
+<script>
+const links=[...document.querySelectorAll('.nav a')]; const io=new IntersectionObserver(es=>{ es.forEach(e=>{ if(e.isIntersecting){ links.forEach(a=>a.classList.toggle('on', a.getAttribute('href')==='#'+e.target.id)); } }); },{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>io.observe(s));
+function loadJS(src){ return new Promise((res,rej)=>{ const s=document.createElement('script'); s.src=src; s.onload=res; s.onerror=rej; document.head.append(s); }); }
+const fallback=(el,imgs)=>{ el.innerHTML=`<div class="duo">${imgs.map(i=>`<figure><img src="${i}" alt=""></figure>`).join('')}</div>`; };
+loadJS('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js')
+  .then(()=>loadJS('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js').catch(()=>{}))
+  .then(()=>loadJS('od-data.js')).then(()=>loadJS('od.js'))
+  .then(()=>{ const coarse=matchMedia('(pointer:coarse)').matches;
+    try { mountOD(document.getElementById('use'),{mode:'use',size:'M',theme:'adidas',orbit:!coarse}); } catch(e){ console.error(e); fallback(document.getElementById('use'),['img/adidas.jpg','img/supports.jpg']); }
+    try { mountOD(document.getElementById('assembly'),{mode:'make',size:'M',theme:'adidas',orbit:!coarse,autoplay:false}); } catch(e){ console.error(e); fallback(document.getElementById('assembly'),['img/supports.jpg','img/packed.jpg']); } })
+  .catch(()=>{ fallback(document.getElementById('use'),['img/adidas.jpg','img/supports.jpg']); });
+</script>
+
+</body></html>

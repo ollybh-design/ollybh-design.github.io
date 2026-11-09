@@ -22,6 +22,8 @@ jobs:
         run: |
           unzip -q portfolio-github.zip -d build
           touch build/portfolio/.nojekyll
+      - name: Add the On Display project page
+        run: cp -r on-display build/portfolio/on-display
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
